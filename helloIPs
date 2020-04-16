@@ -1,0 +1,33 @@
+#!/bin/bash
+
+###########  BASH SCRIPT TO DISPLAY THE ACTIVE INTERFACES  #############
+#Author: lazyC0d3r
+
+clear
+
+echo -e "############### ACTIVE NETWORK INTERFACES ###############"
+
+for i in $(ifconfig | cut -d ' ' -f1 | tr ':' '\n' | awk NF)
+do
+	case $i in 
+	"lo")
+		echo -e "\t$i \t: $(ip addr show $i | grep inet| cut -d'/' -f1| awk '{print $2 }')"
+		;;
+	"wlan0")
+		echo -e "\t$i \t: $(ip addr show $i | grep inet| cut -d'/' -f1| awk '{print $2 }')"
+		;;
+	"eth0")
+		echo -e "\t$i \t: $(ip addr show $i | grep inet| cut -d'/' -f1| awk '{print $2 }')"
+		;;
+	"tun0")
+		echo -e "\t$i \t: $(ip addr show $i | grep inet| cut -d'/' -f1| awk '{print $2 }')"
+		;;
+	"usb0")
+		echo -e "\t$i \t: $(ip addr show $i | grep inet| cut -d'/' -f1| awk '{print $2 }')"
+		;;
+	esac
+done
+
+echo -e "#########################################################"
+echo -e "\tPublic IP: $(curl -s ifconfig.me)"
+echo -e "#########################################################"
