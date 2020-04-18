@@ -2,7 +2,7 @@
 helloIPs is a simple tool to display the Public and Private IP of Your System
 
 ## Installation
-```bash
+```sh
 $ git clone https://github.com/lazyC0d3r/helloIPs.git
 $ cd helloIPs
 $ chmod +x helloIPs
